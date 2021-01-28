@@ -8,7 +8,7 @@
     {{- $styles := resources.Get $mainSassFile | resources.ExecuteAsTemplate $mainSassFile . | resources.ToCSS $options | resources.Fingerprint "sha512" }}
 
     <!-- scripts definition -->
-    {{- partial "analytics" . -}}
+    {{- partial "analytics.html" . -}}
     {{- $highlightPath := "js/highlight.js" }}
     {{- $highlight := resources.Get $highlightPath | resources.ExecuteAsTemplate $highlightPath . }}
 
