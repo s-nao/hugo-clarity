@@ -8,6 +8,7 @@
     {{- $styles := resources.Get $mainSassFile | resources.ExecuteAsTemplate $mainSassFile . | resources.ToCSS $options | resources.Fingerprint "sha512" }}
 
     <!-- scripts definition -->
+    {{- partial "analytics" . -}}
     {{- $highlightPath := "js/highlight.js" }}
     {{- $highlight := resources.Get $highlightPath | resources.ExecuteAsTemplate $highlightPath . }}
 
@@ -37,7 +38,7 @@
 	  <link rel="stylesheet" href="{{ . | relURL }}">
     {{- end }}
     {{- end }}
-	  
+
   </head>
   {{- $maxCodeLines := 100 }}
   {{- $params := .Site.Params }}
